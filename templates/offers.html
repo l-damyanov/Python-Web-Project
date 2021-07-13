@@ -1,0 +1,46 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    Offers
+{% endblock %}
+
+{% block page_title %}
+    Offers
+{% endblock %}
+
+{% block content %}
+    <div class="offer-container">
+        <h2>My house</h2>
+        <img src="https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607" alt="offer-image">
+        <div class="location">
+            <p>City: Los Angeles</p>
+        </div>
+        <a href="{% url 'offer details page' %}" class="btn">Details</a>
+        {% if not available %}
+            <span>&#128308;</span>
+        {% else %}
+            <span>&#128994;</span>
+        {% endif %}
+    </div>
+
+    <div class="offer-container">
+        <h2>My house</h2>
+        <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/99231880.jpg?k=7d4b93f26563c1555e7a6df5d1b31c098676fc865e83c7c9f4b1bae52a4fd3d2&o=" alt="offer-image">
+        <div class="location">
+            <p>City: Breznik</p>
+        </div>
+    </div>
+
+    <div class="offer-container">
+        <h2>My house</h2>
+    </div>
+
+    <div class="offer-container">
+        <h2>My house</h2>
+    </div>
+
+    <div class="offer-container">
+        <h2>My house</h2>
+    </div>
+
+{% endblock %}

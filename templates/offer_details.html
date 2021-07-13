@@ -1,0 +1,52 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    Offer Details
+{% endblock %}
+
+{% block page_title %}
+    Details
+{% endblock %}
+
+{% block content %}
+    <div class="offer-details-container">
+        <h2>My House</h2>
+        <img src="https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607"
+             alt="offer-image">
+        <div class="location">
+            <p>City: Los Angeles</p>
+        </div>
+        <div class="owner">
+            <p>Owner: Pesho</p>
+        </div>
+        <div>
+            {% if not available %}
+                <div class="not-available">
+                    <p>NOT AVAILABLE!</p>
+                    <span>&#128308;</span>
+                </div>
+            {% else %}
+                <div class="available">
+                    <p>AVAILABLE FOR RENT!</p>
+                    <div class="contacts">
+                        <h5>CONTACTS</h5>
+                        <p class="email">Email: pesho@peshov.com</p>
+                        <p class="telephone">Telephone: 0868686868</p>
+                    </div>
+                    <div class="price">
+                        {% if price %}
+                            <p>PRICE: 300$</p>
+                        {% else %}
+                            <p>PRICE: Negotiable</p>
+                        {% endif %}
+                    </div>
+                    <span>&#128994;</span>
+                </div>
+            {% endif %}
+        </div>
+        <div class="description">
+            <p>This house is located in the outskirts of the city! It's at a very beautiful location with a view of the
+                whole city! The night lights are amazing!</p>
+        </div>
+    </div>
+{% endblock %}
