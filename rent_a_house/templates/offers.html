@@ -1,0 +1,49 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    Offers
+{% endblock %}
+
+{% block page_title %}
+    Offers
+{% endblock %}
+
+{% block content %}
+    {% for offer in offers %}
+        <div class="offer-container">
+            <h2>{{ offer.title }}</h2>
+            <img src="{{ offer.image.url }}"
+                 alt="offer-image">
+            <div class="location">
+                <p>City: {{ offer.city }}</p>
+            </div>
+            <a href="{% url 'offer details page' offer.id %}" class="btn">Details</a>
+            {% if not offer.available %}
+                <span>&#128308;</span>
+            {% else %}
+                <span>&#128994;</span>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    {#    <div class="offer-container">#}
+    {#        <h2>My house</h2>#}
+    {#        <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/99231880.jpg?k=7d4b93f26563c1555e7a6df5d1b31c098676fc865e83c7c9f4b1bae52a4fd3d2&o=" alt="offer-image">#}
+    {#        <div class="location">#}
+    {#            <p>City: Breznik</p>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {#    <div class="offer-container">#}
+    {#        <h2>My house</h2>#}
+    {#    </div>#}
+    {##}
+    {#    <div class="offer-container">#}
+    {#        <h2>My house</h2>#}
+    {#    </div>#}
+    {##}
+    {#    <div class="offer-container">#}
+    {#        <h2>My house</h2>#}
+    {#    </div>#}
+
+{% endblock %}

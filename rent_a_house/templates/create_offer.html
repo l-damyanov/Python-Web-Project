@@ -1,0 +1,37 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    Create Offer
+{% endblock %}
+
+{% block page_title %}
+    Create Offer
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'create offer' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+{#        <label for="title">Title:</label><br>#}
+{#        <input class="form-control" type="text" placeholder="Enter offer title">#}
+{#        <label for="city">City:</label><br>#}
+{#        <input class="form-control" type="text" placeholder="Enter offer city">#}
+{#        <label for="description">Description:</label><br>#}
+{#        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"#}
+{#                  placeholder="Enter offer description"></textarea>#}
+{#        <label for="lname">Price:</label><br>#}
+{#        <input class="form-control" type="number" placeholder="Enter price">#}
+{#        <input type="checkbox" class="form-check-input" id="exampleCheck1">#}
+{#        <label class="form-check-label" for="exampleCheck1">Available</label><br>#}
+{#        <label for="email">Email:</label>#}
+{#        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"#}
+{#               placeholder="Enter email">#}
+{#        <label for="telephone">Telephone:</label>#}
+{#        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"#}
+{#               placeholder="Enter telephone number">#}
+{#        <label for="exampleFormControlFile1">Image:</label><br>#}
+{#        <input type="file" class="form-control-file" id="exampleFormControlFile1">#}
+
+        <input class="btn-submit" type="submit" value="Submit">
+    </form>
+{% endblock %}

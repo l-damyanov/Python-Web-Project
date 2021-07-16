@@ -10,17 +10,17 @@
 
 {% block content %}
     <div class="my-offer-details-container">
-        <h2>My House</h2>
-        <img src="https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607"
+        <h2>{{ offer.title }}</h2>
+        <img src="{{ offer.image.url }}"
              alt="offer-image">
         <div class="location">
-            <p>City: Los Angeles</p>
+            <p>City: {{ offer.city }}</p>
         </div>
         <div class="owner">
             <p>Owner: Pesho</p>
         </div>
         <div>
-            {% if not available %}
+            {% if not offer.available %}
                 <div class="not-available">
                     <p>NOT AVAILABLE!</p>
                     <span>&#128308;</span>
@@ -34,8 +34,8 @@
                         <p class="telephone">Telephone: 0868686868</p>
                     </div>
                     <div class="price">
-                        {% if price %}
-                            <p>PRICE: 300$</p>
+                        {% if offer.price %}
+                            <p>PRICE: {{ offer.price }}$</p>
                         {% else %}
                             <p>PRICE: Negotiable</p>
                         {% endif %}
@@ -45,11 +45,10 @@
             {% endif %}
         </div>
         <div class="description">
-            <p>This house is located in the outskirts of the city! It's at a very beautiful location with a view of the
-                whole city! The night lights are amazing!</p>
+            <p>{{ offer.description }}</p>
         </div>
         <div class="btn-edit">
-            <a href="">
+            <a href="{% url 'edit offer' offer.id %}">
                 <button>Edit</button>
             </a>
         </div>

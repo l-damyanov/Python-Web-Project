@@ -14,18 +14,21 @@
             <button>Create New Offer</button>
         </a>
     </div>
+
+    {% for offer in offers %}
     <div class="offer-container">
-        <h2>My house</h2>
-        <img src="https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607"
+        <h2>{{ offer.title }}</h2>
+        <img src="{{ offer.image.url }}"
              alt="offer-image">
         <div class="location">
-            <p>City: Los Angeles</p>
+            <p>City: {{ offer.city }}</p>
         </div>
-        <a href="{% url 'my offer details page' %}" class="btn">Details</a>
-        {% if not available %}
+        <a href="{% url 'my offer details page' offer.id %}" class="btn">Details</a>
+        {% if not offer.available %}
             <span>&#128308;</span>
         {% else %}
             <span>&#128994;</span>
         {% endif %}
     </div>
+    {% endfor %}
 {% endblock %}

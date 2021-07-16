@@ -1,0 +1,29 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    Profile Page
+{% endblock %}
+
+{% block page_title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+    <div class="profile-container">
+        <h2>My name</h2>
+        <img src="https://qph.fs.quoracdn.net/main-qimg-20df28f3b31895e56cba6dbc0515c635" alt="profile-pic">
+        <div class="contacts">
+            <div class="email">
+                <p>Address: Emdsadsadsa@abv.bg</p>
+            </div>
+            <div class="telephone">
+                <p>Telephone: 0868686868</p>
+            </div>
+        </div>
+        <div class="offers-count">
+            <p>Offers Count: 1</p>
+        </div>
+        <a class="btn-edit" href="#"><button>Edit</button></a>
+        <a class="btn-delete" href="#"><button>Delete</button></a>
+    </div>
+{% endblock %}
