@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from rent_a_house.rent_app.forms import CreateOffer, EditOffer
+from rent_a_house.rent_app.forms import CreateOffer, EditOffer, DeleteOffer
 from rent_a_house.rent_app.models import Offer
 
 
@@ -81,5 +81,17 @@ def edit_offer(req, pk):
     return render(req, 'edit_offer.html', context)
 
 
-def profile(req):
-    return render(req, 'profile.html')
+def delete_offer(req, pk):
+    offer = Offer.objects.get(pk=pk)
+    if req.method == 'POST':
+        offer.delete()
+        return redirect('home page')
+    else:
+        form = DeleteOffer(instance=offer)
+
+    context = {
+        'form': form,
+        'offer': offer,
+    }
+
+    return render(req, 'delete_offer.html', context)

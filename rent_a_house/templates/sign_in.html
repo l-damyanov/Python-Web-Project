@@ -1,17 +1,16 @@
 {% extends 'shared/base.html' %}
-
 {% block title %}
-    Edit Offer
+    Sign In
 {% endblock %}
 
 {% block page_title %}
-    Edit offer
+    Sign In
 {% endblock %}
 
 {% block content %}
-    <form action="{% url 'delete offer' offer.id %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'sign in' %}" method="post">
         {% csrf_token %}
         {{ form }}
-        <input class="btn-submit" type="submit" value="Submit">
+        <input class="btn-submit-sign-in" type="submit" value="Sign In">
     </form>
 {% endblock %}

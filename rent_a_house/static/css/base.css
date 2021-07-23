@@ -3,7 +3,7 @@ body {
     padding: 0;
     background: #8798cc;
     font-family: 'Raleway', sans-serif;
-    color: orange;
+    color: darkblue;
     max-width: 1880px;
 }
 
@@ -14,7 +14,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: orange;
+    background-color: lightgreen;
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s;
@@ -31,7 +31,7 @@ body {
 }
 
 .sidenav a:hover {
-    color: yellow;
+    color: white;
 }
 
 .main {
@@ -55,7 +55,7 @@ body {
     position: relative;
     margin: 5px 5px 5px 40px;
     padding: 5px;
-    background-color: orange;
+    background-color: lightblue;
     width: 500px;
     height: 400px;
     border-style: solid;
@@ -113,7 +113,7 @@ body {
 
 .btn-create-offer button {
     background-color: darkblue;
-    color: orange;
+    color: lightblue;
     font-size: 1.5em;
     font-weight: bolder;
     border-style: solid;
@@ -136,7 +136,7 @@ body {
     position: relative;
     margin: 5px 5px 5px 40px;
     padding: 5px;
-    background-color: orange;
+    background-color: lightblue;
     width: 1040px;
     height: 600px;
     border-style: solid;
@@ -173,7 +173,7 @@ body {
 }
 
 .offer-details-container .description {
-    position: relative;
+    position: absolute;
 }
 
 .offer-details-container .description p {
@@ -278,7 +278,7 @@ body {
     position: relative;
     margin: 5px 5px 5px 40px;
     padding: 5px;
-    background-color: orange;
+    background-color: lightblue;
     width: 1040px;
     height: 600px;
     border-style: solid;
@@ -421,7 +421,7 @@ body {
 .my-offer-details-container .btn-edit button {
     position: fixed;
     background-color: darkblue;
-    color: orange;
+    color: lightblue;
     font-size: 1.5em;
     font-weight: bolder;
     border-style: solid;
@@ -446,7 +446,7 @@ body {
 .my-offer-details-container .btn-delete button {
     position: fixed;
     background-color: darkblue;
-    color: orange;
+    color: lightblue;
     font-size: 1.5em;
     font-weight: bolder;
     border-style: solid;
@@ -473,7 +473,7 @@ body {
     left: 50%;
     width: 150px;
     height: 50px;
-    background-color: orange;
+    background-color: lightblue;
     color: darkblue;
     font-size: 1.5em;
     border-style: solid;
@@ -500,7 +500,7 @@ body {
 .profile-container {
     width: 1070px;
     height: 600px;
-    border: 15px solid orange;
+    border: 15px solid lightblue;
     background-color: white;
     padding: 50px;
     margin: 20px;
@@ -568,7 +568,7 @@ body {
     left: 900px;
     width: 70px;
     height: 40px;
-    background-color: orange;
+    background-color: lightblue;
     color: darkblue;
     font-size: 1.5em;
     border-color: #8798cc;
@@ -587,7 +587,7 @@ body {
     left: 1000px;
     width: 90px;
     height: 40px;
-    background-color: orange;
+    background-color: lightblue;
     color: darkblue;
     font-size: 1.5em;
     border-color: #8798cc;
@@ -607,4 +607,70 @@ body {
     height: 25px;
     padding: 5px;
     margin: 10px;
+}
+
+/* Css for sign_in.html */
+
+.btn-submit-sign-in {
+    margin: 5px;
+    position: absolute;
+    bottom: 65%;
+    left: 50%;
+    width: 150px;
+    height: 50px;
+    background-color: lightblue;
+    color: darkblue;
+    font-size: 1.5em;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+.btn-submit-sign-in:hover {
+    background-color: limegreen;
+    color: white;
+}
+
+/* Css for sign_up.html */
+
+.btn-submit-sign-up {
+    margin: 5px;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    width: 150px;
+    height: 50px;
+    background-color: lightblue;
+    color: darkblue;
+    font-size: 1.5em;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+.btn-submit-sign-up:hover {
+    background-color: limegreen;
+    color: white;
+}
+
+/* Css for edit_profile.html */
+
+.btn-submit-profile {
+    margin: 5px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 150px;
+    height: 50px;
+    background-color: lightblue;
+    color: darkblue;
+    font-size: 1.5em;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+.btn-submit-profile:hover {
+    background-color: limegreen;
+    color: white;
 }

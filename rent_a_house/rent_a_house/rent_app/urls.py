@@ -2,8 +2,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 
-from rent_a_house.rent_app.views import home_page, offers, my_offers, offer_details, my_offer_details, create_offer, \
-    profile, edit_offer
+from rent_a_house.rent_app.views import home_page, offers, my_offers, offer_details, my_offer_details, create_offer,\
+    edit_offer, delete_offer
 
 urlpatterns = [
     path('', home_page, name='home page'),
@@ -13,5 +13,5 @@ urlpatterns = [
     path('my_offer_details/<int:pk>', my_offer_details, name='my offer details page'),
     path('create_offer/', create_offer, name='create offer'),
     path('edit_offer/<int:pk>', edit_offer, name='edit offer'),
-    path('profile/', profile, name='profile page'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('delete_offer/<int:pk>', delete_offer, name='delete offer'),
+]

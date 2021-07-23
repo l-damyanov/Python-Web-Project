@@ -1,4 +1,5 @@
 {% extends 'shared/base.html' %}
+{% load static %}
 
 {% block title %}
     Profile Page
@@ -10,20 +11,38 @@
 
 {% block content %}
     <div class="profile-container">
-        <h2>My name</h2>
+        {% if request.user.profile.first_name and request.user.profile.last_name %}
+            <h2>{{ request.user.profile.first_name }} {{ request.user.profile.last_name }}</h2>
+        {% else %}
+            <h2>No Profile Name</h2>
+        {% endif %}
+    {% if request.user.profile.profile_image %}
         <img src="https://qph.fs.quoracdn.net/main-qimg-20df28f3b31895e56cba6dbc0515c635" alt="profile-pic">
+    {% else %}
+        <img src="{% static 'images/profile_image.png' %}" alt="alt-profile-image">
+    {% endif %}
         <div class="contacts">
             <div class="email">
-                <p>Address: Emdsadsadsa@abv.bg</p>
+                <p>Address: {{ request.user }}</p>
             </div>
-            <div class="telephone">
-                <p>Telephone: 0868686868</p>
-            </div>
+            {% if request.user.profile.phone_number %}
+                <div class="telephone">
+                    <p>Telephone: {{ request.user.profile.phone_number }}</p>
+                </div>
+            {% else %}
+                <div class="telephone">
+                    <p>Telephone: No Phone Number</p>
+                </div>
+            {% endif %}
         </div>
         <div class="offers-count">
             <p>Offers Count: 1</p>
         </div>
-        <a class="btn-edit" href="#"><button>Edit</button></a>
-        <a class="btn-delete" href="#"><button>Delete</button></a>
+        <a class="btn-edit" href="{% url 'edit profile' %}">
+            <button>Edit</button>
+        </a>
+        <a class="btn-delete" href="#">
+            <button>Delete</button>
+        </a>
     </div>
 {% endblock %}
