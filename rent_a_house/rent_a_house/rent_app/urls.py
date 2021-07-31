@@ -16,5 +16,4 @@ urlpatterns = [
     path('delete_offer/<int:pk>', delete_offer, name='delete offer'),
     path('rate/<int:pk>', rate_offer, name='rate offer'),
     path('comment/<int:pk>', comment_offer, name='comment offer'),
-    # path('rent_offer/<int:pk>', rent_offer, name='rent offer'),
 ]

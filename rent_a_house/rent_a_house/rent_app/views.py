@@ -142,18 +142,3 @@ def comment_offer(req, pk):
         comment.save()
 
     return redirect('offer details page', pk)
-
-
-
-# @login_required(login_url='sign in')
-# def rent_offer(req, pk):
-#     offer = Offer.objects.get(pk=pk)
-#     user = Profile.objects.get(pk=req.user.id)
-#     owner = Profile.objects.get(pk=offer.user_id)
-#
-#     subject = 'Rent A House Offer'
-#     message = 'Your house has been rented by FIRST_NAME LAST_NAME. You can contact him via email: EMAIL or via telephone PHONE_NUMBER.'
-#     sender = 'lyubomir_damyanov@abv.bg'
-#     receiver = ['lyubomir_damyanov@abv.bg', ]
-#
-#     send_mail(subject=subject, message=message, from_email=sender, recipient_list=receiver)
