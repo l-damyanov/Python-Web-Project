@@ -1,0 +1,17 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    Delete Profile
+{% endblock %}
+
+{% block page_title %}
+    Delete Profile
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'delete profile' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input class="btn-submit-delete-profile" type="submit" value="Delete">
+    </form>
+{% endblock %}

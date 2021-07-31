@@ -17,7 +17,7 @@
             <h2>No Profile Name</h2>
         {% endif %}
     {% if request.user.profile.profile_image %}
-        <img src="https://qph.fs.quoracdn.net/main-qimg-20df28f3b31895e56cba6dbc0515c635" alt="profile-pic">
+        <img src="{{ request.user.profile.profile_image.url }}" alt="profile-pic">
     {% else %}
         <img src="{% static 'images/profile_image.png' %}" alt="alt-profile-image">
     {% endif %}
@@ -36,12 +36,12 @@
             {% endif %}
         </div>
         <div class="offers-count">
-            <p>Offers Count: 1</p>
+            <p>Offers Count: {{ my_offers_count }}</p>
         </div>
         <a class="btn-edit" href="{% url 'edit profile' %}">
             <button>Edit</button>
         </a>
-        <a class="btn-delete" href="#">
+        <a class="btn-delete" href="{% url 'delete profile' %}">
             <button>Delete</button>
         </a>
     </div>

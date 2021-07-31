@@ -18,7 +18,7 @@ class OfferForm(forms.ModelForm):
 
     class Meta:
         model = Offer
-        fields = '__all__'
+        exclude = ('user', )
 
 
 class CreateOffer(OfferForm):
@@ -42,3 +42,9 @@ class DeleteOffer(OfferForm):
         for (_, field) in self.fields.items():
             field.widget.attrs['readonly'] = 'readonly'
             field.widget.attrs['disabled'] = 'disabled'
+
+
+# class RentForm(forms.ModelForm):
+#     class Meta:
+#         model = Offer
+#         exclude = ('user',)

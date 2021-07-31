@@ -12,6 +12,6 @@
     <form action="{% url 'edit profile' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <input class="btn-submit-profile" type="submit" value="Submit">
+        <input class="btn-submit-profile" type="submit" value="Edit">
     </form>
 {% endblock %}

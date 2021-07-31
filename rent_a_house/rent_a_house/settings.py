@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'phonenumber_field',
+    'rent_a_house.common',
     'rent_a_house.rent_a_house_auth',
     'rent_a_house.rent_a_house_profiles',
     'rent_a_house.rent_app',

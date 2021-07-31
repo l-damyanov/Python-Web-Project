@@ -12,6 +12,6 @@
     <form action="{% url 'delete offer' offer.id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <input class="btn-submit" type="submit" value="Submit">
+        <input class="btn-submit" type="submit" value="Delete">
     </form>
 {% endblock %}

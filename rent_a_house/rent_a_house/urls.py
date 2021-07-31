@@ -9,4 +9,5 @@ urlpatterns = [
     path('', include('rent_a_house.rent_app.urls')),
     path('auth/', include('rent_a_house.rent_a_house_auth.urls')),
     path('profiles/', include('rent_a_house.rent_a_house_profiles.urls')),
+    path('common/', include('rent_a_house.common.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

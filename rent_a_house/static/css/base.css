@@ -111,6 +111,10 @@ body {
     position: relative;
 }
 
+.not-complete {
+    text-align: center;
+}
+
 .btn-create-offer button {
     background-color: darkblue;
     color: lightblue;
@@ -166,7 +170,7 @@ body {
 .offer-details-container .location p {
     color: darkblue;
     position: absolute;
-    margin-top: 400px;
+    margin-top: 360px;
     margin-left: 25px;
     font-size: 1.5em;
     text-decoration: underline darkblue;
@@ -196,7 +200,7 @@ body {
 .offer-details-container .owner p {
     color: darkblue;
     position: absolute;
-    margin-top: 440px;
+    margin-top: 390px;
     margin-left: 25px;
     font-size: 1.5em;
     text-decoration: underline darkblue;
@@ -270,6 +274,33 @@ body {
     bottom: -420px;
     left: 650px;
     text-decoration: underline darkblue;
+}
+
+.offer-details-container .rating {
+    position: absolute;
+    bottom: 0;
+    font-size: 1.5em;
+    left: 30px;
+}
+
+.offer-details-container .rent-button {
+    position: relative;
+    left: 410px;
+    top: 450px;
+    font-size: 1.5em;
+    background-color: darkblue;
+    color: lightblue;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    width: 140px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.offer-details-container .rent-button:hover {
+    background-color: limegreen;
+    color: white;
 }
 
 /* Css for my_offer_details.html */
@@ -673,4 +704,59 @@ body {
 .btn-submit-profile:hover {
     background-color: limegreen;
     color: white;
+}
+
+/* Css for delete_profile.html */
+
+.btn-submit-delete-profile {
+    margin: 5px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 150px;
+    height: 50px;
+    background-color: lightblue;
+    color: darkblue;
+    font-size: 1.5em;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+.btn-submit-delete-profile:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Css for the comment section */
+
+.offer-details-container .comment-section {
+    position: relative;
+    top: 550px;
+    left: -7px;
+    width: 1040px;
+    padding: 2%;
+    background-color: lightblue;
+    color: darkblue;
+    font-size: 1.5em;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+.offer-details-container .comment-section .comment-button {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    background-color: darkblue;
+    color: lightblue;
+    font-size: 1.5em;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+.offer-details-container .comment-section .comment-button:hover {
+    background-color: white;
+    color: darkblue;
+    border-color: darkblue;
 }

@@ -1,7 +1,12 @@
+from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
+from rent_a_house.common.forms import CommentForm
+from rent_a_house.rent_a_house_auth.models import RentAHouseUser
+from rent_a_house.rent_a_house_profiles.models import Profile
 from rent_a_house.rent_app.forms import CreateOffer, EditOffer, DeleteOffer
-from rent_a_house.rent_app.models import Offer
+from rent_a_house.rent_app.models import Offer, Rate
 
 
 def home_page(req):
@@ -29,15 +34,30 @@ def my_offers(req):
 
 def offer_details(req, pk):
     offer = Offer.objects.get(pk=pk)
+    offer.stars_count = offer.rate_set.count()
+
+    owner = Profile.objects.get(pk=offer.user_id)
+    owner_email = RentAHouseUser.objects.get(pk=offer.user_id).email
+
+    is_rated_by_user = offer.rate_set.filter(user_id=req.user.id).exists()
 
     context = {
         'offer': offer,
+        'is_rated': is_rated_by_user,
+        'owner': owner,
+        'owner_email': owner_email,
+        'comment_form': CommentForm(
+            initial={
+                'offer_id': pk,
+            }
+        ),
+        'comments': offer.comment_set.all(),
     }
 
     return render(req, 'offer_details.html', context)
 
 
-def my_offer_details(req, pk):  # TODO pk!
+def my_offer_details(req, pk):
     offer = Offer.objects.get(pk=pk)
 
     context = {
@@ -51,7 +71,9 @@ def create_offer(req):
     if req.method == 'POST':
         form = CreateOffer(req.POST, req.FILES)
         if form.is_valid():
-            form.save()
+            offer = form.save(commit=False)
+            offer.user = req.user
+            offer.save()
             return redirect('home page')
     else:
         form = CreateOffer()
@@ -95,3 +117,43 @@ def delete_offer(req, pk):
     }
 
     return render(req, 'delete_offer.html', context)
+
+
+@login_required(login_url='sign in')
+def rate_offer(req, pk):
+    offer = Offer.objects.get(pk=pk)
+    rated = offer.rate_set.filter(user_id=req.user.id).first()
+    if rated:
+        rated.delete()
+    else:
+        rate = Rate(
+            offer=offer,
+            user=req.user,
+        )
+        rate.save()
+    return redirect('offer details page', offer.id)
+
+
+def comment_offer(req, pk):
+    form = CommentForm(req.POST)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.user = req.user
+        comment.save()
+
+    return redirect('offer details page', pk)
+
+
+
+# @login_required(login_url='sign in')
+# def rent_offer(req, pk):
+#     offer = Offer.objects.get(pk=pk)
+#     user = Profile.objects.get(pk=req.user.id)
+#     owner = Profile.objects.get(pk=offer.user_id)
+#
+#     subject = 'Rent A House Offer'
+#     message = 'Your house has been rented by FIRST_NAME LAST_NAME. You can contact him via email: EMAIL or via telephone PHONE_NUMBER.'
+#     sender = 'lyubomir_damyanov@abv.bg'
+#     receiver = ['lyubomir_damyanov@abv.bg', ]
+#
+#     send_mail(subject=subject, message=message, from_email=sender, recipient_list=receiver)

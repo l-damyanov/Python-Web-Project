@@ -9,26 +9,32 @@
 {% endblock %}
 
 {% block content %}
-    <div class="btn-create-offer">
-        <a href="{% url 'create offer' %}">
-            <button>Create New Offer</button>
-        </a>
-    </div>
+    {% if request.user.profile.is_complete %}
+        <div class="btn-create-offer">
+            <a href="{% url 'create offer' %}">
+                <button>Create New Offer</button>
+            </a>
+        </div>
+    {% else %}
+        <h2 class="not-complete">Complete your profile before creating an offer!</h2>
+    {% endif %}
 
     {% for offer in offers %}
-    <div class="offer-container">
-        <h2>{{ offer.title }}</h2>
-        <img src="{{ offer.image.url }}"
-             alt="offer-image">
-        <div class="location">
-            <p>City: {{ offer.city }}</p>
-        </div>
-        <a href="{% url 'my offer details page' offer.id %}" class="btn">Details</a>
-        {% if not offer.available %}
-            <span>&#128308;</span>
-        {% else %}
-            <span>&#128994;</span>
+        {% if offer.user_id == request.user.id %}
+            <div class="offer-container">
+                <h2>{{ offer.title }}</h2>
+                <img src="{{ offer.image.url }}"
+                     alt="offer-image">
+                <div class="location">
+                    <p>City: {{ offer.city }}</p>
+                </div>
+                <a href="{% url 'my offer details page' offer.id %}" class="btn">Details</a>
+                {% if not offer.available %}
+                    <span>&#128308;</span>
+                {% else %}
+                    <span>&#128994;</span>
+                {% endif %}
+            </div>
         {% endif %}
-    </div>
     {% endfor %}
 {% endblock %}
