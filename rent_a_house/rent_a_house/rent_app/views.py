@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 from rent_a_house.common.forms import CommentForm
@@ -15,18 +16,29 @@ def home_page(req):
 
 def offers(req):
     all_offers = Offer.objects.all()
+    paginator = Paginator(all_offers, 12)
+    page_number = req.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     context = {
         'offers': all_offers,
+        'page_obj': page_obj,
     }
 
     return render(req, 'offers.html', context)
 
 
+@login_required(login_url='sign in')
 def my_offers(req):
     all_my_offers = Offer.objects.all()
-
+    user_offers = [o for o in all_my_offers if o.user_id == req.user.id]
+    paginator = Paginator(user_offers, 12)
+    page_number = req.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
         'offers': all_my_offers,
+        'user_offers': user_offers,
+        'page_obj': page_obj
     }
 
     return render(req, 'my_offers.html', context)
@@ -57,6 +69,7 @@ def offer_details(req, pk):
     return render(req, 'offer_details.html', context)
 
 
+@login_required(login_url='sign in')
 def my_offer_details(req, pk):
     offer = Offer.objects.get(pk=pk)
 
@@ -67,6 +80,7 @@ def my_offer_details(req, pk):
     return render(req, 'my_offer_details.html', context)
 
 
+@login_required(login_url='sign in')
 def create_offer(req):
     if req.method == 'POST':
         form = CreateOffer(req.POST, req.FILES)
@@ -85,6 +99,7 @@ def create_offer(req):
     return render(req, 'create_offer.html', context)
 
 
+@login_required(login_url='sign in')
 def edit_offer(req, pk):
     offer = Offer.objects.get(pk=pk)
     if req.method == 'POST':
@@ -103,6 +118,7 @@ def edit_offer(req, pk):
     return render(req, 'edit_offer.html', context)
 
 
+@login_required(login_url='sign in')
 def delete_offer(req, pk):
     offer = Offer.objects.get(pk=pk)
     if req.method == 'POST':

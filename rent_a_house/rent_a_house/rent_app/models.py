@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 
 from rent_a_house.rent_a_house_profiles.models import Profile
+from rent_a_house.rent_app.validators import validate_image_format, validate_title
 
 UserModel = get_user_model()
 
@@ -9,6 +10,7 @@ UserModel = get_user_model()
 class Offer(models.Model):
     title = models.CharField(
         max_length=30,
+        validators=[validate_title],
     )
     city = models.CharField(
         max_length=30,
@@ -21,6 +23,7 @@ class Offer(models.Model):
         default=False,
     )
     image = models.ImageField(
+        validators=[validate_image_format],
         upload_to='offers',
     )
 

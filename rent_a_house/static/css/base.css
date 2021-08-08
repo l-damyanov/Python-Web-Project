@@ -53,7 +53,7 @@ body {
 
 .offer-container {
     position: relative;
-    margin: 5px 5px 5px 40px;
+    margin: 30px 5px 5px 40px;
     padding: 5px;
     background-color: lightblue;
     width: 500px;
@@ -126,6 +126,7 @@ body {
     width: 200px;
     height: 80px;
     margin-left: 450px;
+    margin-top: 30px;
     border-width: 2px;
 }
 
@@ -759,4 +760,26 @@ body {
     background-color: white;
     color: darkblue;
     border-color: darkblue;
+}
+
+/* Css for the pagination */
+
+.step-links {
+    font-size: 1.5em;
+    position: absolute;
+    left: 950px;
+    top: 95px;
+}
+
+.step-links a {
+    text-decoration: underline;
+    color: darkblue;
+}
+
+.step-links a:hover {
+    color: lightblue;
+}
+
+.current {
+    color: darkblue;
 }
