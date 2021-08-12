@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%w0y)ma48tte562t46#1998)uv63ihd&-hr@dxft*ngmv%erq2'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'rent_a_house.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'rent_a_house',
-        'USER': 'postgres',
-        'PASSWORD': '1Number9',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -139,8 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'rent_a_house_auth.RentAHouseUser'
 
 cloudinary.config(
-    cloud_name='bigsmokechungus',
-    api_key='666454617225329',
-    api_secret='UoQiUX9eXmVS4nCUnRFrSXSOykk',
+    cloud_name='',
+    api_key='',
+    api_secret='',
     secure=True,
 )
