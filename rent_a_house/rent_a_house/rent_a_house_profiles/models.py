@@ -2,29 +2,30 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 from rent_a_house.rent_a_house_auth.models import RentAHouseUser
+from cloudinary import models as cloudinary_models
 
 
 class Profile(models.Model):
-    profile_image = models.ImageField(
-        upload_to='profile_images',
+    profile_image = cloudinary_models.CloudinaryField(
+        resource_type='image',
         null=True,
         blank=True,
     )
 
     first_name = models.CharField(
         max_length=15,
-        blank=True,
+        blank=False,
     )
 
     last_name = models.CharField(
         max_length=15,
-        blank=True,
+        blank=False,
     )
 
     phone_number = PhoneNumberField(
         max_length=15,
         region='BG',
-        blank=True,
+        blank=False,
     )
 
     is_complete = models.BooleanField(

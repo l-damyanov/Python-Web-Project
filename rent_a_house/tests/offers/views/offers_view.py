@@ -18,7 +18,7 @@ class OffersViewTests(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(reverse('offers page'))
 
-        self.assertEqual(0, response.context['offers'].count())
+        self.assertEqual(0, len(response.context['page_obj']))
 
     def test_offersView_whenHasOffers_shouldReturnOffers(self):
         offer = Offer(
@@ -37,4 +37,4 @@ class OffersViewTests(TestCase):
 
         response = self.client.get(reverse('offers page'))
 
-        self.assertEqual(1, response.context['offers'].count())
+        self.assertEqual(1, len(response.context['page_obj']))

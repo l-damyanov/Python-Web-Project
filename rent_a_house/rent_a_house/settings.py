@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'django-insecure-%w0y)ma48tte562t46#1998)uv63ihd&-hr@dxft*ngmv%erq2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,9 +81,9 @@ WSGI_APPLICATION = 'rent_a_house.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'rent_a_house',
+        'USER': 'postgres',
+        'PASSWORD': '1Number9',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -136,3 +137,10 @@ MEDIA_ROOT = BASE_DIR / 'media_files'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'rent_a_house_auth.RentAHouseUser'
+
+cloudinary.config(
+    cloud_name='bigsmokechungus',
+    api_key='666454617225329',
+    api_secret='UoQiUX9eXmVS4nCUnRFrSXSOykk',
+    secure=True,
+)

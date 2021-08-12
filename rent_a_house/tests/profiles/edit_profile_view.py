@@ -22,6 +22,7 @@ class EditProfileViewTests(TestCase):
         response = self.client.post('/profiles/profile_edit/', data={
             'first_name': 'Test',
             'last_name': 'Yee',
+            'phone_number': '+35948554755'
         })
 
         self.assertEqual(302, response.status_code)
@@ -30,7 +31,7 @@ class EditProfileViewTests(TestCase):
 
         self.assertEqual('Test', profile.first_name)
         self.assertEqual('Yee', profile.last_name)
-        self.assertEqual('', profile.phone_number)
+        self.assertEqual('+35948554755', profile.phone_number)
 
     def test_editProfileView_whenUserHasCredentials_shouldEditCredentials(self):
         profile = Profile.objects.get(pk=self.user.id)
@@ -43,6 +44,7 @@ class EditProfileViewTests(TestCase):
             'profile_image': 'path/to/image.png',
             'first_name': 'Test',
             'last_name': 'Yee',
+            'phone_number': '+35948554755',
             'user': self.user,
         })
 
@@ -52,7 +54,7 @@ class EditProfileViewTests(TestCase):
 
         self.assertEqual('Test', profile.first_name)
         self.assertEqual('Yee', profile.last_name)
-        self.assertEqual('', profile.phone_number)
+        self.assertEqual('+35948554755', profile.phone_number)
 
     def test_editProfileView_whenUserHasNoImage_shouldAddImage(self):
         profile = Profile.objects.get(pk=self.user.id)
@@ -67,6 +69,9 @@ class EditProfileViewTests(TestCase):
 
         response = self.client.post(reverse('edit profile'), data={
             'profile_image': file,
+            'first_name': 'Test',
+            'last_name': 'Yee',
+            'phone_number': '+35948554755',
         })
 
         self.assertEqual(302, response.status_code)

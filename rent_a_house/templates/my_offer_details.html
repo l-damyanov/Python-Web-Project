@@ -30,8 +30,8 @@
                     <p>AVAILABLE FOR RENT!</p>
                     <div class="contacts">
                         <h5>CONTACTS</h5>
-                        <p class="email">Email: pesho@peshov.com</p>
-                        <p class="telephone">Telephone: 0868686868</p>
+                        <p class="email">Email: {{ request.user }}</p>
+                        <p class="telephone">Telephone: {{ request.user.profile.phone_number }}</p>
                     </div>
                     <div class="price">
                         {% if offer.price %}

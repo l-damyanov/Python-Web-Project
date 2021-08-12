@@ -1,5 +1,4 @@
-from django.contrib.auth import get_user_model, get_user
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user
 from django.shortcuts import render, redirect
 
 from rent_a_house.rent_a_house_profiles.forms import ProfileEditForm, ProfileDeleteForm
