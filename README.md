@@ -11,6 +11,7 @@
 # Bonuses
 - [x] Extended Django User
 - [x] Class Based Views
+- [x] File storage - Cloudinary
 
 | ----Apps---- |
 | :----------: |
