@@ -6,8 +6,8 @@ from cloudinary import models as cloudinary_models
 
 
 class Profile(models.Model):
-    profile_image = cloudinary_models.CloudinaryField(
-        resource_type='image',
+    profile_image = models.ImageField(
+        upload_to='profile_images',
         null=True,
         blank=True,
     )

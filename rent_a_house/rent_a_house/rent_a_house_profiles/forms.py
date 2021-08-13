@@ -14,13 +14,13 @@ class ProfileEditForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
-    def save(self, commit=True):
-        db_profile = Profile.objects.get(pk=self.instance.user_id)
-        if commit:
-            if self.cleaned_data['profile_image'] != db_profile.profile_image and db_profile.profile_image != '':
-                image_path = join(settings.MEDIA_ROOT, str(db_profile.profile_image))
-                os.remove(image_path)
-        return super().save(commit)
+    # def save(self, commit=True):
+    #     db_profile = Profile.objects.get(pk=self.instance.user_id)
+    #     if commit:
+    #         if self.cleaned_data['profile_image'] != db_profile.profile_image and db_profile.profile_image != '':
+    #             image_path = join(settings.MEDIA_ROOT, str(db_profile.profile_image))
+    #             os.remove(image_path)
+    #     return super().save(commit)
 
     class Meta:
         model = Profile

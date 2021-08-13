@@ -3,7 +3,6 @@ from django.db import models
 
 from rent_a_house.rent_a_house_profiles.models import Profile
 from rent_a_house.rent_app.validators import validate_image_format, validate_title
-from cloudinary import models as cloudinary_models
 
 UserModel = get_user_model()
 
@@ -23,9 +22,11 @@ class Offer(models.Model):
     available = models.BooleanField(
         default=False,
     )
-    image = cloudinary_models.CloudinaryField(
-        resource_type='image',
+    image = models.ImageField(
+        upload_to='offers',
         validators=[validate_image_format],
+        blank=False,
+        null=False,
     )
 
     user = models.ForeignKey(

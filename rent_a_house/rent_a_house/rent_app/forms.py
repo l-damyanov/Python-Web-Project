@@ -26,14 +26,14 @@ class CreateOffer(OfferForm):
 
 
 class EditOffer(OfferForm):
-
-    def save(self, commit=True):
-        db_offer = Offer.objects.get(pk=self.instance.id)
-        if commit:
-            if self.cleaned_data['image'] != db_offer.image:
-                image_path = join(settings.MEDIA_ROOT, str(db_offer.image))
-                os.remove(image_path)
-        return super().save(commit)
+    pass
+    # def save(self, commit=True):
+    #     db_offer = Offer.objects.get(pk=self.instance.id)
+    #     if commit:
+    #         if self.cleaned_data['image'] != db_offer.image:
+    #             image_path = join(settings.MEDIA_ROOT, str(db_offer.image))
+    #             os.remove(image_path)
+    #     return super().save(commit)
 
 
 class DeleteOffer(OfferForm):

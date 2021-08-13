@@ -18,7 +18,7 @@ class MyOffersViewTests(TestCase):
         self.client.force_login(self.user)
         test_user = UserModel.objects.create_user(email='random_user@gmail.com', password='randomtestuser123')
 
-        offer = Offer(
+        offer = Offer.objects.create(
             title='Test',
             city='Test City',
             description='testing',

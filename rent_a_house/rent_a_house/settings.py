@@ -138,9 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'rent_a_house_auth.RentAHouseUser'
 
-cloudinary.config(
-    cloud_name='',
-    api_key='',
-    api_secret='',
-    secure=True,
-)
+# cloudinary.config(
+#     cloud_name='',
+#     api_key='',
+#     api_secret='',
+#     secure=True,
+# )
